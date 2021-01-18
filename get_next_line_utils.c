@@ -1,26 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/18 15:00:34 by mourdani          #+#    #+#             */
+/*   Updated: 2021/01/18 15:01:01 by mourdani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
-
-size_t	ft_strlen(const char *str)
-{
-	size_t i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-int     ft_strchr(const char *s, char c)
-{
-        int             i;
-
-        i = 0;
-        while (s[i] && s[i] != (char)c)
-                i++;
-        if (s[i] != (char)c)
-                return (-1);
-        return (i);
-}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -82,7 +72,7 @@ char	*ft_strdup(const char *src)
 	return (str);
 }
 
-void		*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
@@ -108,69 +98,6 @@ void		*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-
-char		*ft_strnew(size_t size)
-{
-	char	*result;
-
-	result = (char *)malloc((size + 1) * sizeof(char));
-	if (result == NULL)
-		return (NULL);
-	ft_bzero(result, size + 1);
-	return (result);
-}
-
-char	*ft_strncpy(char *dst, const char *src, size_t len)
-{
-	size_t	i;
-
-	i = 0;
-	while (src[i] && i < len)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	while (i < len)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
-}
-
-
-char		*ft_strncat(char *dst, const char *src, size_t n)
-{
-	size_t	i;
-	size_t	dst_len;
-
-	i = 0;
-	dst_len = ft_strlen(dst);
-	while (src[i] && i < n)
-	{
-		dst[dst_len] = src[i];
-		dst_len++;
-		i++;
-	}
-	dst[dst_len] = '\0';
-	return (dst);
-}
-
-void	*ft_bzero(void *b, unsigned int n)
-{
-	unsigned int	i;
-	char			*str;
-
-	i = 0;
-	str = (char *)b;
-	while (i < n)
-	{
-		str[i] = '\0';
-		i++;
-	}
-	return (b);
-}
-
 
 void	ft_strdel(char **as)
 {
